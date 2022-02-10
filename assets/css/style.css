@@ -1992,3 +1992,34 @@ section {
   margin: 0em 3em;
   padding: 20px;
 }
+
+div.sub-title{
+  font-size: 1.2em;
+  font-weight: 600;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+table {
+  text-align: center;
+  border-collapse: collapse;
+  padding: 2px;
+}
+
+table,table tr th, table tr td { 
+  border:2px solid #d0d7de; 
+}
+
+th {
+  font-size: 16px;
+  font-weight: 600;
+  padding: 6px 13px;
+}
+
+td {
+  padding: 6px 13px;
+}
+
+table tr.inactive{
+  background-color: #f6f8fa;
+}
