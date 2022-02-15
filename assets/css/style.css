@@ -2023,3 +2023,7 @@ td {
 table tr.inactive{
   background-color: #f6f8fa;
 }
+
+span.announcement{
+  font-weight: bold;
+}
