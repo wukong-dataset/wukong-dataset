@@ -14,7 +14,8 @@
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,700,700i&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/
+  css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,700,700i&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
@@ -34,6 +35,10 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
   <script>
   var _hmt = _hmt || [];
   (function() {
@@ -75,526 +80,75 @@
       <div class="container" style="border:1px solid #d0d7de; border-radius: 10px; padding: 100px;">
         <div class="section-title"><h1>Benchmark</h1></div>
         <div>
-          <div class="col-md-12 sub-title">Following the existing  vision-language pre-training models, we employ a dual-encoder architecture for vision-language representation learning. Since the encoders of visual and textual modalities are decoupled, we explore different encoder architectures and propose two models structures Wukong_ViT and Wukong_Swin:</div>
-          <table>
+          <div class="col-md-12 sub-title">Following the existing  vision-language pre-training models, we employ a dual-encoder architecture for vision-language representation learning. Since the encoders of visual and textual modalities are decoupled, we explore different encoder architectures</div>
+          <table style="margin: auto">
             <tr>
-              <th rowspan="2">Model</th>
-              <th rowspan="2">Embedding dimension</th>
-              <th rowspan="2">Input image resolution</th>
-              <th rowspan="2">Image encoder</th>
-              <th rowspan="2">Input text token length</th>
-              <th colspan="3" style="text-align: center;">Text encoder</th>
+              <th rowspan="1">Model</th>
+              <th rowspan="1">Embedding dimension</th>
+              <th rowspan="1">Image encoder</th>
+              <th rowspan="1">Similarity</th>
+              <th rowspan="1"># vis Token</th>
+              <th rowspan="1">Checkpoints</th>
             </tr> 
+            <tr class="inactive">
+              <td>\(Wukong_{ViT-B}^G\)</td>
+              <td>512</td>
+              <td>ViT-B/32</td>
+              <td>Global</td>
+              <td>/</td>
+              <td>To be released</td>
+            </tr>
             <tr>
-              <th>#layers</th>
-              <th>#width</th>
-              <th>#heads</th>
+              <td>\(Wukong_{ViT-B}^F\)</td>
+              <td>512</td>
+              <td>ViT-B/32</td>
+              <td>Token-wise</td>
+              <td>/</td>
+              <td>To be released</td>
             </tr>
             <tr class="inactive">
-              <td>Wukong_Vit</td>
-              <td>256</td>
-              <td>224x224</td>
-              <td>ViT-L</td>
-              <td>32</td>
+              <td>\(Wukong_{ViT-B}\)</td>
+              <td>512</td>
+              <td>ViT-B/32</td>
+              <td>Token-wise</td>
               <td>12</td>
-              <td>768</td>
-              <td>12</td>
+              <td>To be released</td>
             </tr>
             <tr>
-              <td>Wukong_Swin</td>
-              <td>256</td>
-              <td>224x224</td>
-              <td>Swin-L</td>
-              <td>32</td>
-              <td>12</td>
+              <td>\(Wukong_{ViT-L}^G\)</td>
               <td>768</td>
-              <td>12</td>
-            </tr>
-          </table>
-          <br>
-          <div class="col-md-12 sub-title"> which use ViT-L and Swin-L as image encoder seperately:</div>
-          <table>
-            <tr>
-              <th colspan="4">ViT-L</th>
-              <th colspan="5">Swin-L</th>
+              <td>ViT-L/14</td>
+              <td>Global</td>
+              <td>/</td>
+              <td>To be released</td>
             </tr>
             <tr class="inactive">
-              <th>patch_size</th>
-              <th>width</th>
-              <th>#layers</th>
-              <th>#heads</th>
-              <th>patch_size</th>
-              <th>width</th>
-              <th>#layers</th>
-              <th>#heads</th>
-              <th>window size</th>
+              <td>\(Wukong_{ViT-L}^F\)</td>
+              <td>768</td>
+              <td>ViT-L/14</td>
+              <td>Token-wise</td>
+              <td>/</td>
+              <td>To be released</td>
             </tr>
             <tr>
-              <td>14</td>
-              <td>1024</td>
+              <td>\(Wukong_{ViT-L}\)</td>
+              <td>768</td>
+              <td>ViT-L/14</td>
+              <td>Token-wise</td>
               <td>24</td>
-              <td>16</td>
-              <td>4</td>
-              <td>192</td>
-              <td>[2,2,18,2]</td>
-              <td>[6,12,24,48]</td>
-              <td>7</td>
+              <td>To be released</td>
             </tr>
           </table>
-          <div class="col-md-12 sub-title">And we will release these models soon.</div>
         </div>
         <hr>
         <div>
           <div class="col-md-12 sub-title">We evaluate our models on several tasks, for zero-shot classification task:</div>
-          <!-- <table>
-            <tr>
-              <th>Model</th>
-              <th>Wukong_ViT</th>
-              <th>Wukong_ViT (500M)</th>
-              <th>Wukong_Swin</th>
-            </tr>
-            <tr>
-              <th>CIFAR10</th>
-              <td>90.6 </td>
-              <td>90.3 </td>
-              <td>95.5 </td>
-            </tr>
-            <tr class="inactive">
-              <th>Caltech101</th>
-              <td>89.9 </td>
-              <td>89.2 </td>
-              <td>91.6 </td>
-            </tr>
-            <tr>
-              <th>Caltech256</th>
-              <td>86.2 </td>
-              <td>86.0 </td>
-              <td>88.4 </td>
-            </tr>
-            <tr class="inactive">
-              <th>Sports</th>
-              <td>97.8 </td>
-              <td>96.9 </td>
-              <td>99.1 </td>
-            </tr>
-            <tr>
-              <th>Flowers102</th>
-              <td>69.4 </td>
-              <td>71.6 </td>
-              <td>75.1 </td>
-            </tr>
-            <tr class="inactive">
-              <th>OxfordPets</th>
-              <td>61.3 </td>
-              <td>67.0 </td>
-              <td>64.5 </td>
-            </tr>
-            <tr>
-              <th>ImageNet-skhtch</td>
-              <td>36.5 </td>
-              <td>36.8 </td>
-              <td>31.4 </td>
-            </tr>
-            <tr class="inactive">
-              <th>ImageNet-r<htd>
-              <td>52.2 </td>
-              <td>53.2 </td>
-              <td>41.9 </td>
-            </tr>
-            <tr>
-              <th>ImageNet-a<htd>
-              <td>72.2 </td>
-              <td>77.5 </td>
-              <td>55.3 </td>
-            </tr>
-            <tr class="inactive">
-              <th>StanfordDog</th>
-              <td>29.4 </td>
-              <td>35.4 </td>
-              <td>40.3 </td>
-            </tr>
-            <tr>
-              <th>EuroSAT</th>
-              <td>25.5 </td>
-              <td>32.3 </td>
-              <td>21.0 </td>
-            </tr>
-            <tr class="inactive">
-              <th>Aircrafts</th>
-              <td>22.3 </td>
-              <td>21.5 </td>
-              <td>10.1 </td>
-            </tr>
-            <tr>
-              <th>Average</th>
-              <td>61.1 </td>
-              <td>63.1 </td>
-              <td>59.5</td>
-            </tr>
-          </table> -->
-          <table>
-            <tr>
-              <th>dataset</th>
-              <th>ResNet50</th>
-              <th>ResNet101</th>
-              <th>ViT-B/32</th>
-              <th>ViT-B/16</th>
-              <th>Wukong_ViT (global similarity)</th>
-              <th>Wukong_ViT</th>
-              <th>Wukong_ViT-500M</th>
-              <th>Wukong_Swin (global similarity)</th>
-              <th>Wukong_Swin</th>
-            </tr>
-            <tr>
-              <th>CIFAR10</th>
-              <td>49.0</td> 
-              <td>60.3</td> 
-              <td>89.0</td> 
-              <td>89.5</td> 
-              <td>93.6</td> 
-              <td>90.6</td> 
-              <td>90.3</td> 
-              <td>95.3</td> 
-              <th>95.5</th>
-            </tr>
-            <tr>
-              <th>CIFAR100</th>
-              <td>23.5</td> 
-              <td>31.1</td> 
-              <td>57.3</td> 
-              <td>49.4</td> 
-              <td>64.6</td> 
-              <td>66.3</td> 
-              <td>65.3</td> 
-              <td>69.1</td> 
-              <th>77.2</th>
-            </tr>
-            <tr>
-              <th>Caltech101</th>
-              <td>72.3</td>
-              <td>76.3</td>
-              <td>83.6</td>
-              <td>84.4</td>
-              <td>86.0</td>
-              <td>89.9</td>
-              <td>89.2</td>
-              <td>87.6</td>
-              <th>91.6</th>
-            </tr>
-            <tr>
-              <th>Caltech256</th>
-              <td>58.4</td>
-              <td>64.3</td>
-              <td>70.5</td>
-              <td>75.4</td>
-              <td>76.8</td>
-              <td>86.2</td>
-              <td>86.0</td>
-              <td>78.2</td>
-              <th>88.4</th>
-            </tr>
-            <tr>
-              <th>Sports</th>
-              <td>78.0</td>
-              <td>83.3</td>
-              <td>90.6</td>
-              <td>88.1</td>
-              <td>86.8</td>
-              <td>97.8</td>
-              <td>96.9</td>
-              <td>93.4</td>
-              <th>99.1</th>
-            </tr>
-            <tr>
-              <th>Flowers</th>
-              <td>29.0</td>
-              <td>30.9</td>
-              <td>38.0</td>
-              <td>42.9</td>
-              <td>55.1</td>
-              <td>69.4</td>
-              <td>71.6</td>
-              <td>54.5</td>
-              <th>75.1</th>
-            </tr>
-            <tr>
-              <th>Food101</th>
-              <td>37.0</td>
-              <td>43.6</td>
-              <td>42.7</td>
-              <td>49.4</td>
-              <td>53.5</td>
-              <th>70.0</th>
-              <td>65.2</td>
-              <td>46.6</td>
-              <td>66.1</td>
-            </tr>
-            <tr>
-              <th>Pets</th>
-              <td>41.7</td>
-              <td>43.8</td>
-              <td>44.9</td>
-              <td>51.2</td>
-              <td>46.4</td>
-              <td>61.3</td>
-              <th>67.0</th>
-              <td>47.7</td>
-              <td>64.5</td>
-            </tr>
-            <tr>
-              <th>SUN397</th>
-              <td>33.1</td>
-              <td>38.4</td>
-              <td>39.8</td>
-              <td>42.7</td>
-              <td>44.9</td>
-              <th>60.2</th>
-              <td>58.9</td>
-              <td>42.4</td>
-              <td>56.5</td>
-            </tr>
-            <tr>
-              <th>ImageNet</th>
-              <td>28.3</td>
-              <td>32.8</td>
-              <td>33.2</td>
-              <td>38.3</td>
-              <td>44.8</td>
-              <td>54.0</td>
-              <td>54.3</td>
-              <td>43.6</td>
-              <th>58.5</th>
-            </tr>
-            <tr>
-              <th>ImageNet-r</th>
-              <td>38.9</td>
-              <td>47.1</td>
-              <td>52.3</td>
-              <td>61.9</td>
-              <td>67.4</td>
-              <td>72.2</td>
-              <th>77.5</th>
-              <td>49.3</td>
-              <td>55.3</td>
-            </tr>
-            <tr>
-              <th>ImageNet-a</th>
-              <td>14.8</td>
-              <td>20.8</td>
-              <td>22.2</td>
-              <td>35.4</td>
-              <th>55.1</th>
-              <td>52.2</td>
-              <td>53.2</td>
-              <td>36.8</td>
-              <td>41.9</td>
-            </tr>
-            <tr>
-              <th>ImageNet-s</th>
-              <td>16.0</td>
-              <td>20.6</td>
-              <td>24.0</td>
-              <td>29.0</td>
-              <td>33.3</td>
-              <td>36.5</td>
-              <th>36.8</th>
-              <td>24.7</td>
-              <td>31.4</td>
-            </tr>
-            <tr>
-              <th>DTD</th>
-              <td>22.4</td>
-              <td>25.2</td>
-              <td>27.1</td>
-              <td>31.7</td>
-              <td>35.6</td>
-              <th>46.4</th>
-              <td>44.6</td>
-              <td>31.1</td>
-              <td>39.8</td>
-            </tr>
-            <tr>
-              <th>Dogs</th>
-              <td>12.1</td>
-              <td>12.6</td>
-              <td>17.3</td>
-              <td>23.3</td>
-              <td>21.1</td>
-              <td>29.4</td>
-              <th>35.4</th>
-              <td>22.9</td>
-              <td>40.3</td>
-            </tr>
-            <tr>
-              <th>EuroSAT</th>
-              <td>17.6</td>
-              <td>12.5</td>
-              <td>35.3</td>
-              <th>43.9</th>
-              <td>39.7</td>
-              <td>25.5</td>
-              <td>32.3</td>
-              <td>28.8</td>
-              <td>21.0</td>
-            </tr>
-            <tr>
-              <th>Aircraft</th>
-              <td>10.1</td>
-              <td>10.0</td>
-              <td>10.3</td>
-              <td>14.8</td>
-              <td>20.8</td>
-              <th>22.3</th>
-              <td>21.5</td>
-              <td>8.9</td>
-              <td>10.1</td>
-            </tr>
-          </table>
+          <div style="text-align: center"><img src="assets/img/zero-shot.png"></div>
         </div>
         <br>
         <div>
           <div class="col-md-12 sub-title">For zero-shot retrieval task:</div>
-          <table>
-            <tr>
-              <th rowspan="2">Dataset</th>
-              <th rowspan="2">Method</th>
-              <th colspan="3">Image-to-Text</th>
-              <th colspan="3">Text-to-Image</th>
-              <th rowspan="2">MR</th>
-            </tr>
-            <tr>
-              <th>R@1</th>
-              <th>R@5</th>
-              <th>R@10</th>
-              <th>R@1</th>
-              <th>R@5</th>
-              <th>R@10</th>
-            </tr>
-            <tr>
-              <th rowspan="3">Flickr8K-CN</th>
-              <th>Wukong_ViT</th>
-              <td>70.0 </td>
-              <td>91.6 </td>
-              <td>96.6 </td>
-              <td>53.5 </td>
-              <td>79.3 </td>
-              <td>87.9 </td>
-              <td>79.8 </td>
-            </tr>
-            <tr class="inactive">
-              <th>Wukong_ViT (500M)</th>
-              <td>65.9 </td>
-              <td>90.2 </td>
-              <td>95.7 </td>
-              <td>52.6 </td>
-              <td>80.0 </td>
-              <td>88.6 </td>
-              <td>78.8 </td>
-            </tr>
-            <tr>
-              <th>Wukong_Swin</th>
-              <td>52.1 </td>
-              <td>78.2 </td>
-              <td>87.3 </td>
-              <td>41.0 </td>
-              <td>68.4 </td>
-              <td>79.1 </td>
-              <td>67.7 </td>
-            </tr>
-            <tr>
-              <th rowspan="3">Flickr30K-CN</th>
-              <th>Wukong_ViT</th>
-              <td>78.9 </td>
-              <td>96.2 </td>
-              <td>98.1 </td>
-              <td>55.7 </td>
-              <td>81.2 </td>
-              <td>87.9 </td>
-              <td>83.0 </td>
-            </tr>
-            <tr class="inactive">
-              <th>Wukong_ViT (500M)</th>
-              <td>77.9 </td>
-              <td>95.4 </td>
-              <td>98.1 </td>
-              <td>55.7 </td>
-              <td>81.8 </td>
-              <td>88.7 </td>
-              <td>82.9 </td>
-            </tr>
-            <tr>
-              <th>Wukong_Swin</th>
-              <td>65.8 </td>
-              <td>89.2 </td>
-              <td>95.0 </td>
-              <td>44.5 </td>
-              <td>72.2 </td>
-              <td>81.2 </td>
-              <td>74.7 </td>
-            </tr>
-            <tr>
-              <th rowspan="3">COCO-CN</th>
-              <th>Wukong_ViT</th>
-              <td>56.9 </td>
-              <td>82.4 </td>
-              <td>90.9 </td>
-              <td>52.7 </td>
-              <td>79.9 </td>
-              <td>88.6 </td>
-              <td>75.2 </td>
-            </tr>
-            <tr class="inactive">
-              <th>Wukong_ViT (500M)</th>
-              <td>56.0 </td>
-              <td>81.0 </td>
-              <td>91.6 </td>
-              <td>52.4 </td>
-              <td>79.7 </td>
-              <td>88.8 </td>
-              <td>74.9 </td>
-            </tr>
-            <tr>
-              <th>Wukong_Swin</th>
-              <td>48.7 </td>
-              <td>77.3 </td>
-              <td>88.6 </td>
-              <td>50.6 </td>
-              <td>79.3 </td>
-              <td>88.9 </td>
-              <td>72.2 </td>
-            </tr>
-            <tr>
-              <th rowspan="3">MUGE</th>
-              <th>Wukong_ViT</th>
-              <td>/</td>
-              <td>/</td>
-              <td>/</td>
-              <td>37.6 </td>
-              <td>63.4 </td>
-              <td>73.6 </td>
-              <td>58.2 </td>
-            </tr>
-            <tr class="inactive">
-              <th>Wukong_ViT (500M)</th>
-              <td>/</td>
-              <td>/</td>
-              <td>/</td>
-              <td>42.9 </td>
-              <td>68.5 </td>
-              <td>77.5 </td>
-              <td>63.0 </td>
-            </tr>
-            <tr>
-              <th>Wukong_Swin</th>
-              <td>/</td>
-              <td>/</td>
-              <td>/</td>
-              <td>36.2 </td>
-              <td>61.1 </td>
-              <td>71.5 </td>
-              <td>56.3</td>
-            </tr>
-          </table>
+          <div style="text-align: center"><img src="assets/img/zero-shot-retrieval.png"></div>
         </div>
         <hr>
         <div>
